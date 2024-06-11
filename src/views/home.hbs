@@ -1,0 +1,105 @@
+     {{> categories}}
+<section class="content container--main">
+  <div>
+    <form action="/tasks" method="POST" >
+    <div class="content--input">
+    <input type="checkbox" id="isDone" class="inputCheck" name="isDone" value="1">
+      <label for="isDone" class="inputCheck" >Done?</label>
+      <input
+        id="title"
+        class="content fieldColor"
+        name="title"
+        type="text"
+        placeholder="What is your task?"
+      />
+      <select id="category" name="category">
+        {{#each categories}}
+          <option value="{{this.id}}">{{this.title}}</option>
+        {{/each}}
+      </select>
+      <input type="hidden" name="method" value="POST">
+      <button type="submit"><i class="fa-solid fa-plus plus--add"></i></button>
+    </div>
+    <div class="form-errors--create">
+      {{#if formErrors}}
+      <ul>
+      {{#each formErrors}}
+      <li>{{this}}</li>
+    {{/each}}
+  </ul>
+{{/if}}
+
+    </div>
+    </form>
+  </div>
+  <div class="content--input content--header">
+<h2>We've got things to do!</h2>
+<form action="/tasks" class="content--input" method="POST">
+  <button name="method" value="SEND" type="submit"><i class="fa-solid fa-paper-plane send"></i></button>
+  <input type="email" class="mail content" name="email" id="email" placeholder="email adress">
+</form>
+<!-- Pop up window-->
+<div class="popup">
+    <div class="popup-header">
+        <span>Log Out</span>
+        <button class="close-button">×</button>
+    </div>
+    <hr>
+    <div class="popup-content">
+        <p>Are you sure you want to log out?</p>
+    </div>
+    <form action="/logout" method="POST" class="popup-buttons">
+        <button class="cancel-button">Cancel</button>
+        <button type="submit" class="ok-button">Log out</button>
+    </form>
+</div>
+  </div>
+  <div id="taskList" class="tasklist">
+    {{#each tasks}}
+      {{#unless this.isDone}}
+        <!--{{#todoTask}}{{title}}{{/todoTask}}-->
+        <div>
+         <form class="container--task" action="/tasks" method="POST">
+      <input type="hidden" name="id" value="{{this.id}}">
+      <input type="hidden" name="method" value="PUT">
+      <button type="submit" name="isDone" value="1"><i class="fa-solid fa-check check--task"></i></button>
+            <div class="taskList--width">
+            <input type="text" class="fieldColor--task" name="title" value="{{title}}"></input>
+            <div class="form-errors--update">
+              {{#each this.errors as |error|}}
+                <p>{{error}}</p>
+              {{/each}}
+          </div>
+
+            </div>
+
+          <select id="category_id" name="category_id">
+            {{#each ../categories}}
+          
+            <option value="{{this.id}}" {{#if (compare ../this.category_id '===' this.id)}}selected{{/if}}>{{this.title}}</option>
+            {{/each}}
+          </select>
+        <button type="submit" name="isDelete" value="1"><i class="fa-solid fa-trash trash--task"></i></button>
+      <button type="submit"><i class="fa-solid fa-pen-to-square pen--task"></i></button>
+      </form>
+    {{!-- <a href="" class="linkTransfer"><i class="fa-solid fa-pen-to-square pen--task"></i></a> --}}
+    </div>
+      {{/unless}}
+    {{/each}}
+  </div>
+  <h2>Things you've done!</h2>
+  
+    {{#each tasks}}
+      {{#if this.isDone}}
+        <!--{{#doneTask}}{{title}}{{/doneTask}}-->
+        <form action="/tasks" method="POST" class="container--task">
+        <p class="fieldColor fieldColor--task">{{title}}</p>
+        <input type="hidden" name="id" value="{{id}}">
+        <button type="submit" name="isDelete" value="1"><i class="fa-solid fa-trash trash--task"></i></button>
+
+        </form>
+      {{/if}}
+    {{/each}}
+
+
+</section>

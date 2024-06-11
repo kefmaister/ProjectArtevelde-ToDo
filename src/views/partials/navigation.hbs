@@ -1,0 +1,15 @@
+<nav class="container--navigation">
+  <a href="/tasks" class="container--logo"><img
+      src="/assets/images/logo.png"
+      alt=""
+    />
+    <h1>Just Do It</h1>
+  </a>
+  {{#if user}}
+    <form class="logout" action="/logout" method="POST">
+      <button id="logout" type="submit">Logout from {{user.email}}</button>
+    </form>
+  {{else}}
+    <a href="/login">Login</a>
+  {{/if}}
+</nav>

@@ -1,0 +1,53 @@
+     {{> categories}}
+<section class="content container--main">
+  <h2>We've got things to do!</h2>
+  <div id="taskList">
+    {{#each tasks}}
+      {{#unless this.isDone}}
+        <!--{{#todoTask}}{{title}}{{/todoTask}}-->
+        <div class="container--task">
+         <form action="/tasks" method="POST">
+      <input type="hidden" name="method" value="PUT">
+      <input type="hidden" name="isDone" value="0">
+      <input type="hidden" name="id" value="{{this.id}}">
+      <input type="hidden" name="category" value="{{this.category_id}}">
+      <button type="submit"><i class="fa-solid fa-check check--task"></i></button>
+      </form>
+          <form action="/category" method="POST" class="container--formTask" >
+            <input type="hidden" name="method" value="PUT">
+            <input type="hidden" name="id" value="{{this.id}}">
+            {{!-- <input type="hidden" name="category" value="{{this.category_id}}"> --}}
+            <input type="text" class="fieldColor--task" name="title" value="{{title}}"></input>
+        <select id="category" name="category" onchange="this.form.submit()">
+          
+          {{#each ../categories}}
+          
+            <option value="{{this.title}}" {{#if (compare ../this.category_id '===' this.id)}}selected{{/if}}>{{this.title}}</option>
+          {{/each}}
+      </select>
+      </form>
+      <form action="/tasks" method="POST">
+      <input type="hidden" name="method" value="DELETE">
+      <input type="hidden" name="id" value="{{id}}">
+      <button type="submit"><i class="fa-solid fa-trash trash--task"></i></button>
+      </form>
+    {{!-- <a href="" class="linkTransfer"><i class="fa-solid fa-pen-to-square pen--task"></i></a> --}}
+    </div>
+      {{/unless}}
+    {{/each}}
+  </div>
+  <h2>Things you've done!</h2>
+  
+    {{#each tasks}}
+      {{#if this.isDone}}
+        <!--{{#doneTask}}{{title}}{{/doneTask}}-->
+        <form action="/tasks" method="POST" class="container--task">
+        <p class="fieldColor fieldColor--task">{{title}}</p>
+        <input type="hidden" name="method" value="DELETE">
+        <input type="hidden" name="id" value="{{id}}">
+      <button type="submit" ><i class="fa-solid fa-trash trash--finish"></i></button>
+        </form>
+      {{/if}}
+    {{/each}}
+
+</section>

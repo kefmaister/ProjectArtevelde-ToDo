@@ -1,0 +1,29 @@
+<section class="categories">
+  <div class="categories__items">
+
+    <h2>Categories</h2>
+    {{!-- <a class="link" href="/">Default</a> --}}
+    {{#each categories as |category|}}
+
+      {{#link "/category" category.slug ../activeSlug}}{{category.title}}{{/link}}
+    {{/each}}
+    <form action="/category"  method="POST" class="categories__form ">
+    <input type="hidden" name="method" value="POST">
+    <input type="hidden" name="id" value="{{this.id}}">
+    <div class="content__category--input">
+      <input type="text" name="title" placeholder="Add a category">
+      <button type="submit"><i class="fa-solid fa-plus plus--add"></i></button>
+
+    </div>
+      <div class="form-errors--create">
+      {{#if formErrorsCategory}}
+      <ul>
+      {{#each formErrorsCategory}}
+      <li>{{this}}</li>
+    {{/each}}
+  </ul>
+{{/if}}
+    </div>
+    </form>
+  </div>
+</section>

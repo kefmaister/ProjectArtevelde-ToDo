@@ -1,0 +1,7 @@
+#ignore these files
+
+node_modules
+package-lock.json
+
+# local env files
+.env

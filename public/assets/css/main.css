@@ -1,0 +1,378 @@
+/**
+ * Import other CSS
+ */
+
+@import url("reset.css");
+
+/* .container--page {
+   display: grid;
+   grid-template-areas:
+     "header header"
+     "menu main ";
+     grid-template-columns: 1fr 3fr;
+ } */
+
+h2 {
+  margin-bottom: 1rem;
+}
+
+.logout button {
+  color: white;
+  text-decoration: none;
+  margin-left: 0.5rem;
+  cursor: pointer;
+}
+
+.container--navigation {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background-color: #1f2023;
+  align-items: center;
+  border: 1px solid rgba(211, 211, 211, 0.199);
+  border-top: none;
+}
+.container--logo {
+  display: flex;
+  align-items: center;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+.content--input input::placeholder {
+  padding-left: 0.5rem;
+}
+.container--logo img {
+  width: 2rem;
+  margin-right: 0.5rem;
+}
+.container--task {
+  display: flex;
+  width: 100%;
+  margin-bottom: 0.5rem;
+  align-items: center;
+}
+.container--formTask {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+.tasklist {
+  margin-bottom: 3rem;
+}
+.container--task p {
+  width: 100%;
+}
+.container--main {
+  padding-top: 1rem;
+  padding-left: 2rem;
+}
+.container--main h2 {
+  padding-top: 1rem;
+}
+html {
+  background-color: #161518;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.content {
+  width: 100%;
+}
+.content--input {
+  display: flex;
+
+  align-items: center;
+}
+.content--header {
+  justify-content: space-between;
+}
+.content--center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+.logoSize {
+  font-size: 4rem;
+}
+.fieldColor {
+  border-radius: 10px 0px 0px 10px;
+  background-color: #d2d3d3;
+}
+.fieldColor--task {
+  color: black;
+  background-color: #d2d3d3;
+  padding-left: 0.5rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  width: 100%;
+}
+.categories {
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  background-color: #1f2023;
+  border: 1px solid rgba(211, 211, 211, 0.199);
+  border-top: none;
+  height: 90vh;
+}
+.categories .categories__items {
+  display: flex;
+  flex-direction: column;
+}
+.categories h2 {
+  padding-left: 2rem;
+}
+.categories a {
+  padding: 1rem 0;
+  padding-left: 2rem;
+  padding-right: 6rem;
+}
+.categories__form {
+  display: flex;
+  flex-direction: column;
+}
+.content__category--input {
+  display: flex;
+  flex-direction: row;
+}
+.selected {
+  color: #745fd3;
+  background-color: #745fd327;
+  margin: 0;
+  border-left: 0.5rem solid #745fd3;
+}
+.plus--add {
+  background-color: #4a34a9;
+  padding: 0.5rem 2.5rem;
+  border-radius: 0px 10px 10px 0px;
+}
+.check--task {
+  background-color: #579242;
+  padding: 0.5rem;
+  border-radius: 10px 0px 0px 10px;
+}
+.trash--task {
+  background-color: #a63b38;
+  padding: 0.5rem;
+}
+.pen--task,
+.send {
+  background-color: #4a34a9;
+  padding: 0.5rem;
+  border-radius: 0px 10px 10px 0px;
+}
+.send {
+  border-radius: 10px 0px 0px 10px;
+}
+.mail {
+  padding: 4px 0px 4px 0px;
+}
+input {
+  margin: 0;
+  border: 0;
+}
+.trash--finish {
+  background-color: #a63b38;
+  padding: 0.5rem;
+  border-radius: 0px 10px 10px 0px;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  padding-right: 2rem;
+}
+.link {
+  color: white;
+  text-decoration: none;
+  margin-left: 0.5rem;
+}
+select {
+  height: 2rem;
+}
+.inputCheck {
+  margin-right: 0.5rem;
+}
+.form-errors--create {
+  color: red;
+  font-size: small;
+  margin-bottom: 3rem;
+}
+.form-errors--create ul {
+  padding-left: 5rem;
+}
+.form-errors--update {
+  color: red;
+  font-size: small;
+}
+.taskList--width {
+  width: 100%;
+}
+.btn--primary {
+  background-color: #4a34a9;
+  color: white;
+  padding: 0.5rem 2rem;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+.btn--secondary {
+  color: white;
+  padding: 0.5rem 2rem;
+  cursor: pointer;
+}
+.auth-container {
+  box-sizing: border-box;
+  width: 400px;
+  padding: 30px;
+}
+
+.auth-container h4 {
+  margin: 0 0 20px 0;
+}
+
+.alert {
+  padding: 1rem;
+  margin-bottom: 20px;
+  background-color: white;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  border: 1px solid black;
+}
+
+.alert.success {
+  border-color: green;
+  color: green;
+}
+
+.alert.danger {
+  border-color: red;
+  color: red;
+}
+
+.input-container + .input-container {
+  margin-top: 10px;
+}
+
+.input-container label {
+  display: block;
+}
+
+.input-container .error {
+  color: red;
+  font-size: 0.5rem;
+}
+
+.input-container input,
+.input-container select,
+.input-container textarea {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  padding: 7px;
+  resize: vertical;
+}
+
+.input-container textarea {
+  min-height: 100px;
+}
+
+.footer-container {
+  display: flex;
+  margin-top: 40px;
+  justify-content: space-between;
+}
+
+.footer-container a {
+  border: none;
+  font-size: 0.9rem;
+}
+
+.footer-container .btn + .btn {
+  margin-left: 10px;
+}
+
+ul.form-errors {
+  padding: 7px 0 7px 10px;
+  background-color: lightcoral;
+  color: white;
+  margin-bottom: 20px;
+  font-size: 0.8rem;
+  list-style-type: disc;
+  list-style-position: inside;
+}
+
+/*Pop Up*/
+
+.popup {
+  position: fixed;
+  display: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #2d2d2d;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  width: 350px;
+  padding: 20px;
+}
+
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.popup-header span {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.popup-content,
+.popup-header,
+.close-button {
+  margin: 0;
+  color: #fff;
+}
+
+.popup-buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.cancel-button,
+.ok-button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.cancel-button {
+  background-color: #f0f0f0;
+  margin-right: 10px;
+}
+
+.ok-button {
+  background-color: #007bff;
+  color: #fff;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 15px 0;
+}
